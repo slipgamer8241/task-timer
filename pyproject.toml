@@ -4,3 +4,16 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
+dependencies = [
+    "click==8.1.8",
+    "colorama==0.4.6",
+    "six==1.17.0",
+    "tabulate==0.9.0",
+    "tzdata==2025.1"
+]
+
+[project.scripts]
+task-timer = "task_timer:timer"
+
+[tool.uv]
+package = true

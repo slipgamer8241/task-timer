@@ -80,12 +80,10 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     <br>
     Edit can edit by subtracting, adding time or Changing the Name of the timer.
     <br>
-    - **Changing name**
-    <br>
+    - **Changing name**<br>
     ```bash 
     edit-name -name <name> -n <name> #New name
     ```
-    <br>
     - **Add time**
 
     ```bash

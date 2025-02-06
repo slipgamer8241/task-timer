@@ -36,7 +36,7 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
 
 5. **get-time**
 
-    get-time displays the all tasks you have started.
+    Get-time displays the all tasks you have started.
 
     ```bash
     get-time

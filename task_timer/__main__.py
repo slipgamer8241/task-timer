@@ -113,6 +113,24 @@ def csv_time(filename: str):
     csv_write(filename, timer_list)
     click.echo(Fore.GREEN + "Timesheet has been Exported!" + Style.RESET_ALL)
 
+@timer.command()
+@click.option("-name", required=True, help="Current name of the timer to edit.")
+@click.option("-n", required=True, help="New name for the timer.")
+def edit_name(name: str, n: str):
+    """Edit the name of a timer."""
+    # Retrieve the timer object and its index using the current name
+    timer_obj, index = get_timer_obj(name)
+    
+    # Check if the timer object exists
+    if timer_obj:
+        # Update the timer's name to the new name
+        timer_obj.name = n
+        # Display a success message
+        click.echo(Fore.GREEN + f"Timer name changed to '{n}'." + Style.RESET_ALL)
+    else:
+        # Display an error message if the timer was not found
+        click.echo(Fore.RED + f"No timer found with the name '{name}'." + Style.RESET_ALL)
+
 def main():
     """The main function to start the Timer CLI."""
     click.echo("Timer CLI started! Type 'exit' to quit.")

@@ -71,7 +71,7 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
 9. **Exit**
 
     Exit quits the program.
-
+    &nbsp;
     ```bash 
     exit
     ```
@@ -91,7 +91,7 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     edit-add -name <name> -time <int> #Amount of seconds you want Added
     ```
     - **Subtract time**
-    
+
     ```bash
     edit-sub -name <name> -time <int> #Amount of seconds you want Subtracting
     ```

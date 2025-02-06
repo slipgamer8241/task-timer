@@ -94,5 +94,7 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     ```bash
     edit-sub -name <name> -time <int> #Amount of seconds you want Subtracting
     ```
+## How to Download
+
 ## Usage
 

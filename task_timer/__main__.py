@@ -11,7 +11,7 @@ all_timers = []
 
 def csv_write(filename, timers):
     """Write a list of dictionaries to a CSV file."""
-    if timers == []:
+    if not timers:
         # If there are no timers, print a message and return
         click.echo(Fore.RED + "No data to write!" + Style.RESET_ALL)
         return
@@ -131,20 +131,69 @@ def edit_name(name: str, n: str):
         # Display an error message if the timer was not found
         click.echo(Fore.RED + f"No timer found with the name '{name}'." + Style.RESET_ALL)
 
+@timer.command()
+@click.option("-name", required=True, help="Current name of the timer to edit.")
+@click.option("-time", type=int, required=True, help="Time you want taken off the timer (in seconds).")
+def edit_sub(name: str, time: int):
+    """Edit the time of a timer."""
+    # Retrieve the timer object and its index based on the provided name
+    timer_obj, index = get_timer_obj(name)
+    
+    # Check if the timer object exists
+    if timer_obj:
+        # Subtract the specified time (in seconds) from the timer's start_time
+        timer_obj.start_time += time
+        # Notify the user that the timer's time has been reduced
+        click.echo(Fore.GREEN + f"Timer time reduced by '{time}' seconds." + Style.RESET_ALL)
+    else:
+        # Notify the user that no timer was found with the specified name
+        click.echo(Fore.RED + f"No timer found with the name '{name}'." + Style.RESET_ALL)
+
+@timer.command()
+@click.option("-name", required=True, help="Current name of the timer to edit.")
+@click.option("-time", type=int, required=True, help="Time you want add the timer (in seconds).")
+def edit_time(name: str, time: int):
+    """Edit the time of a timer."""
+    # Retrieve the timer object and its index based on the provided name
+    timer_obj, index = get_timer_obj(name)
+    
+    # Check if the timer object exists
+    if timer_obj:
+        # Adds the specified time (in seconds) from the timer's start_time
+        timer_obj.start_time -= time
+        # Notify the user that the timer's time has been reduced
+        click.echo(Fore.GREEN + f"Timer time reduced by '{time}' seconds." + Style.RESET_ALL)
+    else:
+        # Notify the user that no timer was found with the specified name
+        click.echo(Fore.RED + f"No timer found with the name '{name}'." + Style.RESET_ALL)
+
+
 def main():
     """The main function to start the Timer CLI."""
+    # Display a message indicating that the Timer CLI has started
     click.echo("Timer CLI started! Type 'exit' to quit.")
+    
+    # Infinite loop to keep the CLI running
     while True:
         try:
+            # Prompt the user for input with a custom prompt
             command = input(Fore.LIGHTYELLOW_EX + "task_timer> " + Style.RESET_ALL)
+            
+            # Check if the user wants to exit the CLI
             if command.strip() == "exit":
                 click.echo(Fore.CYAN + "Exiting Timer CLI. Goodbye!" + Style.RESET_ALL)
                 break
+            
+            # Process the command if it is not empty
             if command.strip():
                 timer.main(args=command.split(), standalone_mode=False)  # Process command-line input
+                
         except Exception as e:
-            click.echo(Fore.RED + f"Error: {e}" + Style.RESET_ALL)  # Catch errors and display message
+            # Catch any exceptions and display an error message
+            click.echo(Fore.RED + f"Error: {e}" + Style.RESET_ALL)
+            
         except KeyboardInterrupt:
+            # Handle the case where the user interrupts the program (e.g., with Ctrl+C)
             click.echo(Fore.CYAN + "Exiting Timer CLI. Goodbye!" + Style.RESET_ALL)
             break
 

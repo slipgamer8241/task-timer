@@ -75,6 +75,7 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     ```bash 
     exit
     ```
-    
+
+
 ## Usage
 

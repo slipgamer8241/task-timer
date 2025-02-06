@@ -2,6 +2,8 @@
 A Python-driven task timer app enables you to efficiently monitor and manage time for various tasks. It aims to boost productivity with real-time tracking, intuitive CLI commands, and task data storage in CSV format.
 ## Features
 
+### **Commands**
+
 1. **Run Program**
     
     This is how you get the program started.
@@ -49,6 +51,6 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     end <name>
     ```
 
-### **Commands**
+
 ## Usage
 

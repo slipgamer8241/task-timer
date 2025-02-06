@@ -4,11 +4,11 @@ A Python-driven task timer app that enables you to efficiently monitor and manag
 
 1. **Run Program**
     This is how you get the program started.
-    ''' bash
+    ```bash
     python -m task_timer
-    '''
+    ```
 
-    
+
 
 
 ### **Commands**

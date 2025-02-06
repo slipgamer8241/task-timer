@@ -26,8 +26,21 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     start <name>
     ```
 
+4. **Pause**
 
+    Pause stops the timer. It stops the timer at the time you paused it at.
 
+    ```bash
+    pause <name>
+    ```
+
+5. **get-time**
+
+    get-time displays the all tasks you have started.
+
+    ```bash
+    get-time
+    ```
 
 ### **Commands**
 ## Usage

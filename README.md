@@ -59,5 +59,14 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     ```bash
     csv-timer --filename <name>
     ```
+
+8. **Reset**
+
+    Resets the timer back to now.
+
+    ```bash
+    reset <name>
+    ```
+    
 ## Usage
 

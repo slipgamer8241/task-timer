@@ -3,9 +3,9 @@ Program: Task-timer
 Author: Marcus Sweet
 Date: 2/5/25
 Description:
-A Python-driven task timer app enables you to efficiently monitor and 
-manage time for various tasks. It aims to boost productivity with 
-real-time tracking, intuitive CLI commands, and task data storage in CSV format.
+    A Python-driven task timer app enables you to efficiently monitor and 
+    manage time for various tasks. It aims to boost productivity with 
+    real-time tracking, intuitive CLI commands, and task data storage in CSV format.
 """
 
 import os  # Provides a way of using operating system dependent functionality like clearing the terminal screen

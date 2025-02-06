@@ -81,24 +81,19 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     Edit can edit by subtracting, adding time or Changing the Name of the timer.
 
     - **Changing name**
-
-
+    
     ```bash 
     edit-name -name <name> -n <name> #New name
     ```
-
     - **Add time**
 
-
     ```bash
-    edit-add -name <name> -time <int> #amount of seconds you want Added
+    edit-add -name <name> -time <int> #Amount of seconds you want Added
     ```
-
     - **Subtract time**
-
-
+    
     ```bash
-    edit-sub -name <name> -time <int> #amount of seconds you want Subtracting
+    edit-sub -name <name> -time <int> #Amount of seconds you want Subtracting
     ```
 ## Usage
 

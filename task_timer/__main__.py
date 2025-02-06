@@ -86,7 +86,7 @@ def get_time():
 
 @timer.command()
 @click.argument("name", required=True)
-def end(name):
+def end(name: str):
     """Stop and remove a timer."""
     timer_obj, index = get_timer_obj(name)
     if timer_obj:
@@ -107,7 +107,7 @@ def reset(name: str):
 
 @timer.command()
 @click.option("--filename", required=False, default="TimeSheet.csv", help="Name your TimeSheet (outputs a .csv)")
-def csv_time(filename):
+def csv_time(filename: str):
     """Export all timers to a CSV file."""
     timer_list = obj_list_to_dict_list(all_timers, export=True)
     csv_write(filename, timer_list)

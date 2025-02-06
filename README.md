@@ -12,7 +12,7 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
 2. **Start**
     Starts new task timer. You can give your task a name or use the default "task".
 
-    ``bash
+    ```bash
     start <name>
     ```
 

@@ -7,7 +7,6 @@ from timer import Timer  # Import the Timer class from the timer module
 from colorama import Fore, Style  # Import color and style utilities from colorama
 
 # Create an instance of Timer and an empty list to hold all timers
-timer_instance = Timer(name="My timer")
 all_timers = []
 
 def csv_write(filename, timers):

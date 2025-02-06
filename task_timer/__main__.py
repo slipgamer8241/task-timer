@@ -118,7 +118,7 @@ def main():
     click.echo("Timer CLI started! Type 'exit' to quit.")
     while True:
         try:
-            command = input(Fore.LIGHTYELLOW_EX + "timer> " + Style.RESET_ALL)
+            command = input(Fore.LIGHTYELLOW_EX + "task_timer> " + Style.RESET_ALL)
             if command.strip() == "exit":
                 click.echo(Fore.CYAN + "Exiting Timer CLI. Goodbye!" + Style.RESET_ALL)
                 break

@@ -85,6 +85,7 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     ```bash 
     edit-name -name <name> -n <name> #New name
     ```
+    <br>
     - **Add time**
 
     ```bash

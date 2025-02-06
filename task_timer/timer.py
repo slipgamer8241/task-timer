@@ -8,7 +8,7 @@ class Timer:
         self.start_time = None
         self.pause_time = None
         self.is_running = False
-        
+
     def start(self):
         # Start the timer if it is not already running
         if self.is_running:
@@ -16,9 +16,9 @@ class Timer:
         self.start_time = time.time()
         self.is_running = True
         return Fore.GREEN + "Timer started!" + Style.RESET_ALL
-    
+
     task_time = None
-    
+
     def get_time(self):
         # Get the elapsed time since the timer started, considering if it is paused or running
         if self.start_time is None:
@@ -29,7 +29,7 @@ class Timer:
             task_time = int(self.pause_time - self.start_time)
         mins, secs = divmod(task_time, 60)
         return f"{mins:02}:{secs:02}"
-            
+
     def pause(self):
         # Pause the timer and record the current time as pause time
         self.pause_time = time.time()
@@ -40,7 +40,7 @@ class Timer:
         self.start_time = time.time()
         self.is_running = True
         return Fore.GREEN + "Timer is Reset." + Style.RESET_ALL
-    
+
     def end(self):
         # Stop the timer and return the total elapsed time
         if not self.is_running:

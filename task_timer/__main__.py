@@ -1,32 +1,33 @@
-import os
-import time
-import csv
-from tabulate import tabulate
-import click
-from timer import Timer  # Import the Timer class from the timer module
-from colorama import Fore, Style  # Import color and style utilities from colorama
+import os  # Provides a way of using operating system dependent functionality like clearing the terminal screen
+import time  # Provides various time-related functions
+import csv  # Provides functionality to read from and write to CSV files
+from tabulate import tabulate  # Used to create nicely formatted tables in the terminal
+import click  # A package for creating command-line interfaces
+from task_timer.timer import Timer  # Import the Timer class from the timer module
+from colorama import Fore, Style  # Import color and style utilities from colorama to colorize terminal output
 
-# Create an instance of Timer and an empty list to hold all timers
+# List to hold all timer instances
 all_timers = []
 
 def csv_write(filename, timers):
     """Write a list of dictionaries to a CSV file."""
     if timers == []:
+        # If there are no timers, print a message and return
         click.echo(Fore.RED + "No data to write!" + Style.RESET_ALL)
         return
 
-    # Write the timers to a CSV file
+    # Write the list of timers to a CSV file
     with open(filename, 'w', encoding='utf-8') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=timers[0].keys())  # Use keys from first dict as headers
+        writer = csv.DictWriter(csvfile, fieldnames=timers[0].keys())  # Use the keys from the first dictionary as CSV headers
         writer.writeheader()
-        writer.writerows(timers)
+        writer.writerows(timers)  # Write all timer dictionaries as rows in the CSV file
 
 def get_timer_obj(name):
     """Get a timer object by name. Returns tuple (object, index) or (None, -1) if not found."""
     for index, obj in enumerate(all_timers):
         if name == obj.name:
-            return obj, index
-    return None, -1
+            return obj, index  # Return the timer object and its index if found
+    return None, -1  # Return None and -1 if not found
 
 def obj_list_to_dict_list(timers, export=False):
     """Convert a list of timer objects to a list of dictionaries for display or export."""
@@ -57,7 +58,7 @@ def start(name: str):
     """Start a new timer with the given name."""
     timer_obj = Timer(name)
     all_timers.append(timer_obj)
-    click.echo(timer_obj.start())  # Start and print timer message
+    click.echo(timer_obj.start())  # Start the timer and print the start message
 
 @timer.command()
 @click.argument("name", required=True)
@@ -65,7 +66,7 @@ def pause(name: str):
     """Pause a running timer."""
     timer_obj, index = get_timer_obj(name)
     if timer_obj:
-        click.echo(timer_obj.pause())  # Call pause method on the timer
+        click.echo(timer_obj.pause())  # Call the pause method on the timer
     else:
         click.echo(Fore.RED + f"No timer found with the name '{name}'." + Style.RESET_ALL)
 
@@ -76,7 +77,7 @@ def get_time():
         while True:
             timers = obj_list_to_dict_list(all_timers)
             table = Fore.WHITE + tabulate(timers, headers='keys', tablefmt="github") + Style.RESET_ALL
-            os.system('cls' if os.name == 'nt' else 'clear')  # Clear screen on each refresh
+            os.system('cls' if os.name == 'nt' else 'clear')  # Clear the terminal screen
             click.echo(Fore.WHITE + "Press Ctrl+C to stop showing the timer/get out of the tasks." + Style.RESET_ALL)
             click.echo(table)
             time.sleep(1)  # Refresh every second
@@ -89,18 +90,18 @@ def end(name):
     """Stop and remove a timer."""
     timer_obj, index = get_timer_obj(name)
     if timer_obj:
-        click.echo(timer_obj.end())  # Call end method on the timer
+        click.echo(timer_obj.end())  # Call the end method on the timer
         all_timers.pop(index)  # Remove the timer from the list
     else:
         click.echo(Fore.RED + f"No timer found with the name '{name}'." + Style.RESET_ALL)
 
 @timer.command()
 @click.argument("name", required=True)
-def reset(name):
+def reset(name: str):
     """Reset a timer's elapsed time."""
     timer_obj, index = get_timer_obj(name)
     if timer_obj:
-        click.echo(timer_obj.reset())  # Reset the timer
+        click.echo(timer_obj.reset())  # Call the reset method on the timer
     else:
         click.echo(Fore.RED + f"No timer found with the name '{name}'." + Style.RESET_ALL)
 
@@ -111,7 +112,6 @@ def csv_time(filename):
     timer_list = obj_list_to_dict_list(all_timers, export=True)
     csv_write(filename, timer_list)
     click.echo(Fore.GREEN + "Timesheet has been Exported!" + Style.RESET_ALL)
-
 
 def main():
     """The main function to start the Timer CLI."""
@@ -131,4 +131,4 @@ def main():
             break
 
 if __name__ == "__main__":
-    main()  # Start the CLI when script is executed
+    main()  # Start the CLI when the script is executed

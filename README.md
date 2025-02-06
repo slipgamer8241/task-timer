@@ -10,13 +10,22 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     python -m task_timer
     ```
 
-2. **Start**
+2. **Help**
+
+    --Help shows you the commands that you can use and you can use --help with every command to see what you wanted to input
+
+    ```bash
+    --help
+    ```
+
+3. **Start**
     
     Starts new task timer. You can give your task a name or use the default "task".
 
     ```bash
     start <name>
     ```
+
 
 
 

@@ -96,5 +96,30 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     ```
 ## How to Download
 
-## Usage
+### Prerequisites
+- Python 3.7 or higher
+- pip (Python package installer)
+
+### Setup Virtual Environment (Recommended)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/slipgamer8241/task-timer.git
+   cd task-timer
+   ```
+
+2. Create and activate a virtual environment:
+   
+    ```bash
+   # macOS/Linux
+   python -m venv .venv
+   source .venv/bin/activate
+    ```
+
+3.  How to start Program
+
+    ```bash
+    python -m task_timer
+    ```
+
+   
 

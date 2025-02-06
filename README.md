@@ -47,10 +47,17 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
 6. **End**
 
     End stops the timer and removes it from the task list.
+    
     ```bash
     end <name>
     ```
 
+7. **CSV**
+    
+    Takes all of your running/pause timers and exports them into a csv file which you can name the default is "TimeSheet.csv"
 
+    ```bash
+    csv-timer --filename <name>
+    ```
 ## Usage
 

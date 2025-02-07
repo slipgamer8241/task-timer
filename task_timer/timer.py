@@ -3,9 +3,9 @@ Program: Task-timer
 Author: Marcus Sweet
 Date: 2/5/25
 Description:
-    This program is a simple task timer that allows the user to start, pause, reset, edit,and stop a timer for a given 
-    task.The program uses the time module to calculate the elapsed time and the colorama module to add color to the output.
-    The Timer class has methods
+    Timer class to manage and display a timer for a named task. 
+    The class includes methods to start, pause, reset, and end the timer, and to get the elapsed time. 
+    The colorama library is used to format the output with colors for better readability.
 """
 
 import time

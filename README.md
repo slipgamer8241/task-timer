@@ -54,7 +54,7 @@ A Python-driven task timer app enables you to efficiently monitor and manage tim
     
 7. **CSV**
     
-    Takes all of your running/pause timers and exports them into a csv file which you can name the default is "TimeSheet.csv"
+    Takes all of your running/paused timers and exports them into a csv file which you can name the default is "TimeSheet.csv"
     
     ```bash
     csv-timer --filename <name>
